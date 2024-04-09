@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#container {
+  background: linear-gradient(#efd157, #9ea4ea);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.drone {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+/*---------------------------------circle----------------------------*/
+.circle {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 50px;
+  height: 100px;
+  background-color: #332f2f;
+  border-radius: 50%;
+}
+
+#drone1 .circle {
+  width: 70px;
+}
+
+#drone2 .circle {
+  top: 5px;
+  left: 40px;
+}
+/*-------------------------------------------------------------------*/
+
+/*---------------------------------stick----------------------------*/
+.stick {
+  position: absolute;
+  width: 80px;
+  height: 10px;
+  background-color: #332f2f;
+}
+
+#drone1StickLeft {
+  top: 50px;
+  left: -30px;
+  transform: rotate(37deg);
+}
+
+#drone1StickRight {
+  top: 50px;
+  left: 80px;
+  transform: rotate(143deg);
+}
+
+#drone2StickLeft {
+  top: 50px;
+  left: -30px;
+  transform: rotate(156deg);
+}
+
+#drone2StickRight {
+  top: 50px;
+  left: 80px;
+  transform: rotate(205deg);
+}
+
+/*-------------------------------------------------------------------*/
+
+/*---------------------------------wing----------------------------*/
+
+.wing {
+  position: absolute;
+  width: 16px;
+  height: 60px;
+  background-color: #332f2f;
+  border-radius: 20px;
+}
+
+#drone1WingLeft {
+  left: -30px;
+  transform-origin: center center;
+  animation: rotate-left 0.2s linear infinite;
+}
+
+#drone1WingRight {
+  right: -60px;
+  transform-origin: center center;
+  animation: rotate-right 0.2s linear infinite;
+}
+
+#drone2WingLeft {
+  top: 40px;
+  left: -30px;
+  transform-origin: center center;
+  animation: rotate-left 0.2s linear infinite;
+}
+
+#drone2WingRight {
+  top: 40px;
+  right: -60px;
+  transform-origin: center center;
+  animation: rotate-right 0.2s linear infinite;
+}
+
+@keyframes rotate-left {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-right {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+#drone2 .wing-right {
+  right: -60px;
+}
+
+#drone1 .wing-right {
+  right: -60px;
+}
+
+/*-------------------------------------------------------------------*/
