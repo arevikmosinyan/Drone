@@ -13,11 +13,35 @@
   align-items: center;
 }
 
+#dronesContainer {
+  transition: transform 0.5s ease;
+}
+
 .drone {
   position: relative;
   width: 100px;
   height: 100px;
 }
+.rotate-left {
+  transform: rotate(90deg);
+}
+.rotate-up {
+  transform: rotate(180deg);
+}
+.rotate-right {
+  transform: rotate(270deg);
+}
+
+.rotate-down {
+  transform: rotate(360deg);
+}
+
+/* .rotate-down-from-right {
+  transform: rotate(360deg);
+}
+.rotate-right-from-down {
+  transform: rotate(-90deg);
+} */
 
 /*---------------------------------circle----------------------------*/
 .circle {
