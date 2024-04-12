@@ -54,14 +54,17 @@ document.addEventListener("keydown", function (event) {
   // rotate the drone to the left
 
   if (event.key === "q") {
-    let startIndex = dronesContainer.style.transform.indexOf("(") + 1;
-    let endIndex = dronesContainer.style.transform.indexOf("deg");
-    let rotationDegreeString = dronesContainer.style.transform.slice(
-      startIndex,
-      endIndex
-    );
-    rotationDegree = Number(rotationDegreeString);
-    /*---------------------------------------------------------finding out if the drone is scaled or not, to make it moved with scaled transformation-------*/
+    let rotationDegree = 0;
+    findRotation();
+    // let startIndex = dronesContainer.style.transform.indexOf("(") + 1;
+    // let endIndex = dronesContainer.style.transform.indexOf("deg");
+    // let rotationDegreeString = dronesContainer.style.transform.slice(
+    //   startIndex,
+    //   endIndex
+    // );
+    // rotationDegree = Number(rotationDegreeString);
+
+    /*-----------------------------------------finding out if the drone is scaled or not, to make it moved with scaled transformation-------*/
 
     const startIndexOfScaleValue =
       dronesContainer.style.transform.indexOf("scale(");
@@ -73,38 +76,73 @@ document.addEventListener("keydown", function (event) {
       endIndexOfScaleValue
     );
 
-    console.log("Scaled size string:", scaledSizeString);
+    // console.log("Scaled size string:", scaledSizeString);
 
-    /*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+    /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
-    if (rotationDegree === 0) {
-      dronesContainer.style.transform = scaled
-        ? `scale(${scaledSizeString}) rotate(-90deg)`
-        : "rotate(-90deg)";
+    function findRotation() {
+      rotationDegree = Math.abs(rotationDegree) + 90;
 
-      rotationDegree = -90;
-    } else if (rotationDegree === -90) {
-      dronesContainer.style.transform = scaled
-        ? `scale(${scaledSizeString}) rotate(-180deg)`
-        : "rotate(-180deg)";
-
-      rotationDegree = -180;
-    } else if (rotationDegree === -180) {
-      dronesContainer.style.transform = scaled
-        ? `scale(${scaledSizeString}) rotate(-270deg)`
-        : "rotate(-270deg)";
-
-      rotationDegree = -270;
-    } else if (rotationDegree === -270) {
-      dronesContainer.style.transform = scaled
-        ? `scale(${scaledSizeString}) rotate(-360deg)`
-        : "rotate(-360deg)";
-
-      rotationDegree = -360;
-    } else if (rotationDegree === -360) {
-      rotationDegree = 0;
+      return -rotationDegree;
     }
+    console.log(findRotation());
+    findRotation();
+    dronesContainer.style.transform = `rotate(${findRotation()})`;
+    dronesContainer.style.transform;
+    console.log(
+      dronesContainer.style.transform + " dronesContainer.style.transform "
+    );
+    // if (rotationDegree === 0) {
+    //   dronesContainer.style.transform = "rotate(-90deg)";
+
+    //   rotationDegree = -90;
+    // } else if (rotationDegree === -90) {
+    //   dronesContainer.style.transform = "rotate(-180deg)";
+
+    //   rotationDegree = -180;
+    // } else if (rotationDegree === -180) {
+    //   dronesContainer.style.transform = "rotate(-270deg)";
+
+    //   rotationDegree = -270;
+    // } else if (rotationDegree === -270) {
+    //   dronesContainer.style.transform = "rotate(-360deg)";
+
+    //   rotationDegree = -360;
+    // } else if (rotationDegree === -360) {
+    //   rotationDegree = 0;
+    //   console.log(rotationDegree);
+    //   dronesContainer.style.transform = "rotate(-450deg)";
+    // }
   }
+
+  //   if (rotationDegree === 0) {
+  //     dronesContainer.style.transform = scaled
+  //       ? `rotate(-90deg) scale(${scaledSizeString}) `
+  //       : "rotate(-90deg)";
+
+  //     rotationDegree = -90;
+  //   } else if (rotationDegree === -90) {
+  //     dronesContainer.style.transform = scaled
+  //       ? `rotate(-180deg) scale(${scaledSizeString})`
+  //       : "rotate(-180deg)";
+
+  //     rotationDegree = -180;
+  //   } else if (rotationDegree === -180) {
+  //     dronesContainer.style.transform = scaled
+  //       ? `rotate(-270deg) scale(${scaledSizeString})`
+  //       : "rotate(-270deg)";
+
+  //     rotationDegree = -270;
+  //   } else if (rotationDegree === -270) {
+  //     dronesContainer.style.transform = scaled
+  //       ? `rotate(-360deg) scale(${scaledSizeString})`
+  //       : "rotate(-360deg)";
+
+  //     rotationDegree = -360;
+  //   } else if (rotationDegree === -360) {
+  //     rotationDegree = 0;
+  //   }
+  // }
 
   //rotate the drone to the right
   if (event.key === "e") {
