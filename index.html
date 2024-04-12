@@ -9,20 +9,36 @@
   </head>
   <body>
     <div id="container">
+      <div id="popUp">
+        <div class="popUp-content">
+          <span class="close">Close</span>
+          <p>Controls:</p>
+          <p>The directions are decided from the view of Drone:</p>
+          <ul style="list-style-type: circle">
+            <li>Q and E keys: Rotate the drone left and right</li>
+            <li>
+              Arrow keys or w / a / s / d keys: Move the drone forward / left /
+              back / right
+            </li>
+            <li>Space or + key: Zoom in the drone (going up)</li>
+            <li>Ctrl or - key: Zoom out the drone (landing)</li>
+          </ul>
+        </div>
+      </div>
       <div id="dronesContainer">
         <div id="drone1" class="drone">
-          <div id="drone1StickLeft" class="stick"></div>
-          <div class="circle"></div>
           <div id="drone1StickRight" class="stick"></div>
-          <div id="drone1WingLeft" class="wing"></div>
+          <div class="circle"></div>
+          <div id="drone1StickLeft" class="stick"></div>
           <div id="drone1WingRight" class="wing"></div>
+          <div id="drone1WingLeft" class="wing"></div>
         </div>
         <div id="drone2" class="drone">
-          <div id="drone2StickLeft" class="stick"></div>
-          <div class="circle"></div>
           <div id="drone2StickRight" class="stick"></div>
-          <div id="drone2WingLeft" class="wing"></div>
+          <div class="circle"></div>
+          <div id="drone2StickLeft" class="stick"></div>
           <div id="drone2WingRight" class="wing"></div>
+          <div id="drone2WingLeft" class="wing"></div>
         </div>
       </div>
     </div>
