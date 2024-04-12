@@ -9,15 +9,54 @@
   height: 100vh;
   position: relative;
 }
+#popUp {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popUp-content {
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 15% auto;
+  padding: 50px;
+  border: 1px solid #888;
+  border-radius: 7px;
+  color: #d6d2d2;
+  max-width: 900px;
+  max-height: 600px;
+  line-height: 30px;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 #dronesContainer {
   position: absolute;
   top: 0;
-  left: 50px;
+  left: 20px;
   transform: rotate(0deg);
-  transition: 0.2s;
   width: 180px;
-  transition: transform 0.5s ease;
+  transition: transform 1s ease;
 }
 
 .drone {
@@ -34,7 +73,7 @@
   left: 30px;
   width: 50px;
   height: 100px;
-  background-color: #332f2f;
+  background-color: #142931;
   border-radius: 50%;
 }
 
@@ -47,6 +86,26 @@
   left: 40px;
   height: 80px;
 }
+
+#drone2 .circle::before,
+#drone2 .circle::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: rgb(152, 150, 160);
+  border-radius: 30%;
+}
+
+#drone2 .circle::before {
+  top: 50px;
+  left: 10px;
+}
+
+#drone2 .circle::after {
+  top: 50px;
+  left: 30px;
+}
 /*-------------------------------------------------------------------*/
 
 /*---------------------------------stick----------------------------*/
@@ -54,28 +113,28 @@
   position: absolute;
   width: 60px;
   height: 10px;
-  background-color: #332f2f;
+  background-color: #142931;
 }
 
-#drone1StickLeft {
+#drone1StickRight {
   top: 50px;
   left: -10px;
   transform: rotate(46deg);
 }
 
-#drone1StickRight {
+#drone1StickLeft {
   top: 50px;
   left: 85px;
   transform: rotate(132deg);
 }
 
-#drone2StickLeft {
+#drone2StickRight {
   top: 50px;
   transform: rotate(150deg);
   width: 50px;
 }
 
-#drone2StickRight {
+#drone2StickLeft {
   top: 50px;
   left: 85px;
   transform: rotate(207deg);
@@ -90,34 +149,49 @@
   position: absolute;
   width: 16px;
   height: 60px;
-  background-color: #332f2f;
+  background-color: #142931;
   border-radius: 20px;
 }
 
-#drone1WingLeft {
+#drone1WingRight {
   left: -10px;
   transform-origin: center center;
-  animation: rotate-left 0.2s linear infinite;
+
+  animation-name: rotate-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 0.3s;
 }
 
-#drone1WingRight {
+#drone1WingLeft {
   right: -10px;
   transform-origin: center center;
-  animation: rotate-right 0.2s linear infinite;
-}
 
-#drone2WingLeft {
-  top: 40px;
-  left: -10px;
-  transform-origin: center center;
-  animation: rotate-left 0.2s linear infinite;
+  animation-name: rotate-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 0.3s;
 }
 
 #drone2WingRight {
   top: 40px;
+  left: -10px;
+  transform-origin: center center;
+  animation-name: rotate-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 0.3s;
+}
+
+#drone2WingLeft {
+  top: 40px;
   right: -10px;
   transform-origin: center center;
-  animation: rotate-right 0.2s linear infinite;
+
+  animation-name: rotate-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 0.3s;
 }
 
 @keyframes rotate-left {
@@ -132,3 +206,27 @@
 }
 
 /*-------------------------------------------------------------------*/
+
+@media (max-width: 768px) {
+  #container {
+    padding: 60px;
+  }
+
+  #dronesContainer {
+    transform: none;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .drone {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popUp-content {
+    padding: 20px;
+  }
+}
