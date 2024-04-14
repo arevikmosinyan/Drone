@@ -27,6 +27,14 @@ let scaledDegree = 0;
 let newRotationDegree = 0;
 let count = 0;
 let circleCount = 0;
+let circleCountFor180 = 0;
+let circleCountFor270 = 0;
+let circleCountFor360 = 0;
+let circleCountFor90 = 0;
+let countFor180 = 0;
+let countFor270 = 0;
+let countFor90 = 0;
+let countFor360 = 0;
 document.addEventListener('keydown', function (event) {
   const step = 7;
 
@@ -88,11 +96,13 @@ document.addEventListener('keydown', function (event) {
 
   if (event.key === 'q') {
     count += 1;
-    if (count === 4) {
-      circleCount += 1;
-      count = 0;
-    }
+
     rotationDegree -= 90;
+    if (count % 4 === 0) {
+      circleCount += 1;
+      console.log(circleCount + ' circleCount');
+      console.log(rotationDegree + ' rotationDegree');
+    }
 
     if (scaled) {
       dronesContainer.style.transform = `scale(${scaledSizeString}) rotate(${rotationDegree}deg)`;
@@ -114,11 +124,7 @@ document.addEventListener('keydown', function (event) {
 
   /*--------------------------------------------------Arrow keys---------------------------------------------------------------*/
 
-  if (
-    rotationDegree === 0 ||
-    rotationDegree === -360 ||
-    rotationDegree === 360
-  ) {
+  if (rotationDegree % 360 === 0) {
     if (event.key === 'ArrowUp' || event.key === 'w') {
       if (positionY + dronesContainer.offsetHeight + 50 < windowHeight) {
         positionY += step;
@@ -142,7 +148,7 @@ document.addEventListener('keydown', function (event) {
     }
   }
 
-  if (rotationDegree === -90 || rotationDegree === 270) {
+  if (rotationDegree % 360 === -90 || rotationDegree % 360 === 270) {
     if (event.key === 'ArrowUp' || event.key === 'w') {
       if (positionX + dronesContainer.offsetHeight + 50 < windowWidth) {
         positionX += step;
@@ -168,7 +174,8 @@ document.addEventListener('keydown', function (event) {
       }
     }
   }
-  if (rotationDegree === -180 || rotationDegree === 180) {
+
+  if (rotationDegree % 360 === -180 || rotationDegree % 360 === 180) {
     if (event.key === 'ArrowUp' || event.key === 'w') {
       if (positionY > 20) {
         positionY -= step;
@@ -194,7 +201,8 @@ document.addEventListener('keydown', function (event) {
       }
     }
   }
-  if (rotationDegree === -270 || rotationDegree === 90) {
+
+  if (rotationDegree % 360 === -270 || rotationDegree % 360 === 90) {
     if (event.key === 'ArrowUp' || event.key === 'w') {
       if (positionX - 60 > 0) {
         positionX -= step;
