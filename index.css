@@ -90,7 +90,7 @@ ul {
 
 #drone2 .circle::before,
 #drone2 .circle::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 7px;
   height: 7px;
@@ -157,7 +157,6 @@ ul {
 #drone1WingRight {
   left: -10px;
   transform-origin: center center;
-
   animation-name: rotate-left;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -188,7 +187,6 @@ ul {
   top: 40px;
   right: -10px;
   transform-origin: center center;
-
   animation-name: rotate-left;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -203,31 +201,5 @@ ul {
 @keyframes rotate-right {
   to {
     transform: rotate(-360deg);
-  }
-}
-
-/*-------------------------------------------------------------------*/
-
-@media (max-width: 768px) {
-  #container {
-    padding: 60px;
-  }
-
-  #dronesContainer {
-    transform: none;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .drone {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .popUp-content {
-    padding: 20px;
   }
 }
