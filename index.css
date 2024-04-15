@@ -129,17 +129,19 @@ ul {
   transform: rotate(132deg);
 }
 
-#drone2StickRight {
+#drone2StickRight,
+#drone2StickLeft {
   top: 50px;
-  transform: rotate(150deg);
   width: 50px;
 }
 
+#drone2StickRight {
+  transform: rotate(150deg);
+}
+
 #drone2StickLeft {
-  top: 50px;
   left: 85px;
   transform: rotate(207deg);
-  width: 50px;
 }
 
 /*-------------------------------------------------------------------*/
@@ -152,45 +154,29 @@ ul {
   height: 60px;
   background-color: #142931;
   border-radius: 20px;
+  transform-origin: center center;
+  animation-name: rotate-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 0.3s;
 }
 
 #drone1WingRight {
   left: -10px;
-  transform-origin: center center;
-  animation-name: rotate-left;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 0.3s;
 }
 
 #drone1WingLeft {
   right: -10px;
-  transform-origin: center center;
-
-  animation-name: rotate-left;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 0.3s;
 }
 
 #drone2WingRight {
   top: 40px;
   left: -10px;
-  transform-origin: center center;
-  animation-name: rotate-left;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 0.3s;
 }
 
 #drone2WingLeft {
   top: 40px;
   right: -10px;
-  transform-origin: center center;
-  animation-name: rotate-left;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 0.3s;
 }
 
 @keyframes rotate-left {
