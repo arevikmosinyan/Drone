@@ -309,47 +309,40 @@ document.addEventListener("keydown", function (event) {
 
   /*--------------------------------------------------rotation vizualisation of the wings----------------------------------------------------*/
 
-  //   const directions = {
-  //     up: event.key === "ArrowUp" || event.key === "w",
-  //     down: event.key === "ArrowDown" || event.key === "s",
-  //     right: event.key === "ArrowRight" || event.key === "d",
-  //     left: event.key === "ArrowLeft" || event.key === "a",
-  //   };
-
-  let drone1WingRight = document.querySelector("#drone1WingRight");
-  let drone1WingLeft = document.querySelector("#drone1WingLeft");
-  let drone2WingRight = document.querySelector("#drone2WingRight");
-  let drone2WingLeft = document.querySelector("#drone2WingLeft");
+  let drone1WingRightAnimationDuration =
+    document.querySelector("#drone1WingRight").style.animationDuration;
+  let drone1WingLeftAnimationDuration =
+    document.querySelector("#drone1WingLeft").style.animationDuration;
+  let drone2WingRightAnimationDuration =
+    document.querySelector("#drone2WingRight").style.animationDuration;
+  let drone2WingLeftAnimationDuration =
+    document.querySelector("#drone2WingLeft").style.animationDuration;
 
   let newDuration = "0.1s";
   let defaultDuration = "0.4s";
 
-  //back wings are getting faster
-  if (event.key === "ArrowUp" || event.key === "w") {
-    drone1WingLeft.style.animationDuration = newDuration;
-    drone1WingRight.style.animationDuration = newDuration;
+  if (directions.up) {
+    drone1WingLeftAnimationDuration = newDuration;
+    drone1WingRightAnimationDuration = newDuration;
   }
-  //front wings are getting faster
-  else if (event.key === "ArrowDown" || event.key === "s") {
-    drone2WingRight.style.animationDuration = newDuration;
-    drone2WingLeft.style.animationDuration = newDuration;
+  if (directions.down) {
+    drone2WingRightAnimationDuration = newDuration;
+    drone2WingLeftAnimationDuration = newDuration;
   }
-  //left wings are getting faster
-  else if (event.key === "ArrowRight" || event.key === "d") {
-    drone1WingLeft.style.animationDuration = newDuration;
-    drone2WingLeft.style.animationDuration = newDuration;
+  if (directions.right) {
+    drone1WingLeftAnimationDuration = newDuration;
+    drone2WingLeftAnimationDuration = newDuration;
   }
-  //right wings are getting faster
-  else if (event.key === "ArrowLeft" || event.key === "a") {
-    drone1WingRight.style.animationDuration = newDuration;
-    drone2WingRight.style.animationDuration = newDuration;
+  if (directions.left) {
+    drone1WingRightAnimationDuration = newDuration;
+    drone2WingRightAnimationDuration = newDuration;
   }
 
   document.addEventListener("keyup", function (event) {
-    drone1WingRight.style.animationDuration = defaultDuration;
-    drone1WingLeft.style.animationDuration = defaultDuration;
-    drone2WingRight.style.animationDuration = defaultDuration;
-    drone2WingLeft.style.animationDuration = defaultDuration;
+    drone1WingRightAnimationDuration = defaultDuration;
+    drone1WingLeftAnimationDuration = defaultDuration;
+    drone2WingRightAnimationDuration = defaultDuration;
+    drone2WingLeftAnimationDuration = defaultDuration;
   });
 
   /*----------------------------------------------------------------------------------------------------------------------------*/
